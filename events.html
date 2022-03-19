@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Events</title>
+	<style type="text/css">
+	#tf {
+		padding: 25px;
+		font-size: 40px;
+	}
+	
+	#inputeventmessage {
+		margin: 10px;
+		padding: 25px;
+		font-size: 15px;
+		background-color: #ff9966;
+		width: 20%;
+		color: white;
+	}
+	
+	#mouseeventmessage {
+		margin: 10px;
+		padding: 25px;
+		font-size: 15px;
+		background-color: #ff9966;
+		width: 20%;
+	}
+	
+	#WhichOne {
+		margin: 10px;
+		padding: 25px;
+		font-size: 15px;
+		background-color: #ff9966;
+		width: 20%;
+	}
+	
+	#coordinate {
+		margin: 10px;
+		padding: 25px;
+		font-size: 15px;
+		background-color: #ff9966;
+		width: 20%;
+	}
+	
+	#check {
+		margin: 10px;
+		padding: 25px;
+		font-size: 15px;
+		background-color: #ff9966;
+		width: 20%;
+	}
+	#keyCode {
+		margin: 10px;
+		padding: 25px;
+		font-size: 15px;
+		background-color: #ff9966;
+		width: 20%;
+	}
+	</style>
+</head>
+
+<body onmousedown="whichElement(event)" 
+onload="loadingpage()" 
+onunload="endingpage()"
+onresize="resizing()">
+	<form action="">
+		<input type="text" name="" id="tf" 
+		onblur="onbluring()" 
+		onfocus="onfocusing(this)" 
+		onchange="onchanging2()" 
+		onselect="textselect()" 
+		onkeydown="downkey()" 
+		onkeyup="upkey()" 
+		onmouseout="outelement(this)" 
+		onmousedown="holdingelement(this)" 
+		onmouseup="releasingelement(this)" 
+		onmousemove="coordinatesIn(event)" 
+		onmouseover="big(this)" 
+		onmouseout="normal(this)" 
+		onclick="singleclick(this)" 
+		ondblclick="dblclick(this)" 
+		>
+		<!-- onmouseover="overelement(this)" -->
+		<div id="inputeventmessage" 
+		onclick="singleclick(this)"
+		ondblclick="dblclick(this)">
+			<h1>Text</h1></div>
+		<div id="mouseeventmessage">
+			<h1>Mouse</h1></div>
+		<div id="WhichOne">
+			<h1>Element</h1></div>
+		<div id="coordinate">
+			<h1>Coordinates</h1></div>
+		<div id="check">
+			<h1>Click Checking</h1></div>
+					<div id="keyCode">
+			<h1>Key Checking</h1></div>
+	</form>
+	<script type="text/javascript">
+	//input eventz//
+	function onchanging() {
+		var x = document.getElementById('tf');
+		x.value = x.value.toUpperCase();
+	}
+
+	function onbluring() {
+		var x = document.getElementById('tf');
+		x.value = x.value.toUpperCase();
+	}
+
+	function onchanging2() {
+		a = document.forms[0].tf.value;
+		var y = document.getElementById("inputeventmessage").innerHTML = tf.value;
+		return y;
+	}
+
+	function onfocusing(a) {
+		a.style.background = "yellow";
+	}
+
+	function textselect() {
+		document.getElementById("inputeventmessage").innerHTML = "You selected some text";
+	}
+
+	function downkey() {
+		document.getElementById("inputeventmessage").innerHTML = "on holding a key";
+	}
+
+	function upkey() {
+		document.getElementById("inputeventmessage").innerHTML = "You released a key";
+		 document.getElementById("keyCode").innerHTML = event.keyCode;
+	}
+	//mouse eventz//
+	function overelement(a) {
+		a.style.background = "blue";
+		if(a != false) {
+			document.getElementById("mouseeventmessage").innerHTML = "mouse is over text";
+		} else {
+			return false;
+		}
+	}
+
+	function outelement(a) {
+		a.style.background = "green";
+		if(a != false) {
+			document.getElementById("mouseeventmessage").innerHTML = "mouse is out text";
+		} else {
+			return false;
+		}
+	}
+
+	function releasingelement(a) {
+		a.style.background = "red";
+		if(a != false) {
+			document.getElementById("mouseeventmessage").innerHTML = "mouse is released";
+		} else {
+			return false;
+		}
+	}
+
+	function holdingelement(a) {
+		a.style.background = "black";
+		if(a != false) {
+			document.getElementById("mouseeventmessage").innerHTML = "mouse is holding";
+		} else {
+			return false;
+		}
+	}
+
+	function whichElement(e) {
+		var targ;
+		if(!e) {
+			var e = window.event;
+			//assigning root
+		}
+		if(e.target) {
+			targ = e.target;
+			//assigning body
+		} else if(e.srcElement) {
+			targ = e.srcElement;
+			//assigning elements
+		}
+		var tname;
+		tname = targ.tagName;
+		if(tname) {
+			//assigning text
+			document.getElementById("WhichOne").innerHTML = tname + "is selected";
+		}
+	}
+
+	function coordinatesIn(e) {
+		x = e.clientX;
+		y = e.clientY;
+		coor = "Coordinates: (" + x + "," + y + ")";
+		document.getElementById("coordinate").innerHTML = coor;
+	}
+
+	function coordinatesOut() {
+		document.getElementById("coordinate").innerHTML = "";
+	}
+	// enlagre
+	function big(x) {
+		x.style.height = "64px";
+		x.style.width = "644px";
+	}
+
+	function normal(x) {
+		x.style.height = "45px";
+		x.style.width = "487px";
+	}
+	//mapping kamaal hai
+	function normal(x) {
+		x.style.height = "45px";
+		x.style.width = "487px";
+	}
+
+	function singleclick(x) {
+		x.style.background = 'black';
+		if(x != false) {
+			document.getElementById("check").innerHTML = "clicked";
+		} else {
+			return false;
+		}
+	}
+
+	function dblclick(x) {
+		x.style.background = 'grey';
+		if(x != false) {
+			document.getElementById("check").innerHTML = "Double clicked";
+		} else {
+			return false;
+		}
+	}
+
+	function loadingpage(x) {
+		alert('Enabled Cookies');
+	}
+
+	function endingpage(x) {
+		alert('Mat Ja Bhai');
+	}
+	function resizing(x) {
+		alert('resizing complete');
+	}
+	</script>
+</body>
+
+</html>

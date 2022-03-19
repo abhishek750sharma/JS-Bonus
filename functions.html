@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Script</title>
+</head>
+<body>
+<script type="text/javascript">
+	function add(x,y){
+		function square(t){
+		return t*t;}
+		return square(y)+x;
+	}
+
+	function result(a,b){
+ 		var result;
+        result = add(1,2);
+        document.write ( result );
+        			}
+// constructor
+var func = new Function('x','y','return x*y;');
+	
+	function resultfunc(a,b){
+ 		var result;
+        result = func(1,2);
+        document.write(result);}
+</script>
+<input type="submit" name="" onclick="result(1,2)">
+<input type="submit" name="" onclick="resultfunc(1,2)">
+</body>
+</html>

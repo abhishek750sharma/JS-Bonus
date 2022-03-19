@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cookies in JS</title>
+</head>
+<body>
+
+<!--   <form name = "myform" action = "">
+         Enter name: <input type = "text" name = "customer"/>
+         <input type = "button" value = "Set Cookie" onclick = "writeCookie();"/>
+      </form> -->
+      <script type="text/javascript">
+      /*	function writeCookie(){
+      		  if( document.myform.customer.value == "" ) {
+                  alert("Enter some value!");
+                  return;
+               }
+               cookievalue=escape(document.myform.customer.value) + ";";
+               document.cookie="name+="+cookievalue;
+                              document.write ("Setting Cookies : " + "name=" + cookievalue );
+
+      	}*/
+      	  function Redirect() {
+               window.location = "https://www.tutorialspoint.com";
+            }            
+            document.write("You will be redirected to main page in 10 sec.");
+            setTimeout('Redirect()', 1000);
+      </script> 
+</body>
+</html>
